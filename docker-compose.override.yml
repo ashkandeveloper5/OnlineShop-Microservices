@@ -1,0 +1,75 @@
+version: '3.4'
+
+services:
+  accountdb:
+    container_name: accountdb
+    environment:
+      SA_PASSWORD: "12345onlineshopaccountdb"
+      ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+      - "1434:1433"
+
+  basketdb:
+    container_name: basketdb
+    environment:
+      SA_PASSWORD: "12345onlineshopbasketdb"
+      ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+      - "1435:1433"
+
+  productdb:
+    container_name: productdb
+    environment:
+      SA_PASSWORD: "12345onlineshopproductdb"
+      ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+      - "1438:1433"
+
+  account.api:
+    container_name: account.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:ConnectionString=Server=accountdb;Port=1434;Database=AccountApiDB;User Id=sa;Password=12345onlineshopaccountdb;"
+    depends_on:
+      - accountdb
+    ports:
+      - "7000:80"
+
+  basket.api:
+    container_name: basket.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:ConnectionString=Server=basketdb;Port=1435;Database=BasketApiDB;User Id=sa;Password=12345onlineshopbasketdb;"
+    depends_on:
+      - basketdb
+    ports:
+      - "7001:80"
+
+  product.api:
+    container_name: product.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:ConnectionString=Server=productdb;Port=1438;Database=ProductApiDB;User Id=sa;Password=12345onlineshopproductdb;"
+      - "GrpcSettings:ProductUrl=product.grpc"
+    depends_on:
+      - productdb
+    ports:
+      - "7004:80"
+
+  product.grpc:
+    container_name: product.grpc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - "ConnectionStrings:ConnectionString=Server=productdb;Port=1438;Database=ProductApiDB;User Id=sa;Password=12345onlineshopproductdb;"
+    ports:
+      - "8005:80"
+      - "443"
+    depends_on:
+      - productdb
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

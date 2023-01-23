@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+  accountdb:
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+
+  basketdb:
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+
+  productdb:
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+
+
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: src/Services/Basket/Presentation/Basket.Api/Dockerfile
+
+
+  account.api:
+    image: ${DOCKER_REGISTRY-}accountapi
+    build:
+      context: .
+      dockerfile: src/Services/Account/Presentation/Account.Api/Dockerfile
+
+
+  product.api:
+    image: ${DOCKER_REGISTRY-}productapi
+    build:
+      context: .
+      dockerfile: src/Services/Product/Presentation/Product.Api/Dockerfile
+
+  product.grpc:
+    image: ${DOCKER_REGISTRY-}productgrpc
+    build:
+      context: .
+      dockerfile: src/Services/Product/Presentation/Product.Grpc/Dockerfile
+
