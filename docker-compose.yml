@@ -37,3 +37,10 @@ services:
       context: .
       dockerfile: src/Services/Product/Presentation/Product.Grpc/Dockerfile
 
+
+  order.api:
+    image: ${DOCKER_REGISTRY-}orderapi
+    build:
+      context: .
+      dockerfile: src/Services/Order/Presentation/Order.Api/Dockerfile
+

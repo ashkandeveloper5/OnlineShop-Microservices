@@ -67,6 +67,7 @@ namespace Product.Grpc.Services
                 return new ProductPurchaseMessageResponse()
                 {
                     Count = productEntity.Count,
+                    StatusCode = 200,
                 };
             }
             else

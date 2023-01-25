@@ -1,4 +1,5 @@
 ﻿using Basket.Application.Interfaces.BasketInterfaces;
+using Basket.Core.Entities.Basket;
 using Basket.Core.Entities.Order;
 using Basket.DataAccess.Interfaces;
 using System;
@@ -14,6 +15,7 @@ namespace Basket.Application.Services.BasketServices
     {
         private readonly IAsyncRepository<Order> _orderRepository;
         private readonly IAsyncRepository<OrderDetail> _orderDetailRepository;
+        private readonly IAsyncRepository<Core.Entities.Basket.BasketCheckout> _basketCheckoutRepository;
         public BasketService(IAsyncRepository<Order> orderRepository, IAsyncRepository<OrderDetail> orderDetailRepository)
         {
             _orderRepository = orderRepository;
@@ -72,14 +74,24 @@ namespace Basket.Application.Services.BasketServices
             _orderDetailRepository?.Dispose();
         }
 
-        public async Task<IReadOnlyList<OrderDetail>> GetAllAsync()
+        public async Task<IReadOnlyList<Order>> GetAllOrderAsync()
+        {
+            return await _orderRepository.GetAllAsync();
+        }
+
+        public async Task<IReadOnlyList<OrderDetail>> GetAllOrderDetailAsync()
         {
             return await _orderDetailRepository.GetAllAsync();
         }
 
-        public async Task<IReadOnlyList<OrderDetail>> GetAsync(Expression<Func<OrderDetail, bool>> predicate)
+        public async Task<IReadOnlyList<OrderDetail>> GetOrderDetailAsync(Expression<Func<OrderDetail, bool>> predicate)
         {
             return await _orderDetailRepository.GetAsync(predicate);
+        }
+
+        public async Task<IReadOnlyList<Order>> GetOrderAsync(Expression<Func<Order, bool>> predicate)
+        {
+            return await _orderRepository.GetAsync(predicate);
         }
 
         public Task<OrderDetail> GetByIdAsync(string id)
@@ -90,6 +102,12 @@ namespace Basket.Application.Services.BasketServices
         public async Task UpdateAsync(OrderDetail entity)
         {
             await _orderDetailRepository.UpdateAsync(entity);
+        }
+
+        public async Task<Core.Entities.Basket.BasketCheckout> AddCkeckout(Core.Entities.Basket.BasketCheckout basketCheckout)
+        {
+            await _basketCheckoutRepository.AddAsync(basketCheckout);
+            return (Core.Entities.Basket.BasketCheckout)_basketCheckoutRepository.GetAsync(b=>b.Id==basketCheckout.Id).Result;
         }
     }
 }

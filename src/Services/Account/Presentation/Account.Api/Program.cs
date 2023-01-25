@@ -91,8 +91,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AccountContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectionString"]); }, ServiceLifetime.Transient);
 //builder.Services.AddDbContext<AccountContext>(options => options.UseSqlServer("Data Source=.; Initial Catalog = AccountApiDB; Integrated Security=True"));
 #endregion
-//"ConnectionString": "Data Source=.; Initial Catalog = AccountApiDB; Integrated Security=True;TrustServerCertificate=True"
-//"ConnectionString": "Data Source=.; Initial Catalog = AccountApiDB; Integrated Security=True;TrustServerCertificate=True"
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

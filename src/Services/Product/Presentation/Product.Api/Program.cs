@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Product.Application.UOW;
 using Product.IoC.DependencyContainer;
 using Product.Persistence.Context;
 using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,35 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+#endregion
+
+#region JwtAuthentication
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(optioin =>
+{
+    optioin.RequireHttpsMetadata = true;
+    optioin.SaveToken = true;
+    optioin.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ClockSkew = TimeSpan.Zero,
+        RequireExpirationTime = true,
+        ValidateLifetime = true,
+        ValidateIssuer = true,
+        ValidIssuer = "AccountServer",
+        ValidateAudience = true,
+        ValidAudience = "Account",
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("AccountApiAccountApiAccountApiAccountApi")),
+        TokenDecryptionKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("1234567891011121")),
+    };
+    //optioin.Events = new JwtBearerEvents
+    //{
+    //    OnTokenValidated = async (context) =>
+    //    {
+    //        var claims = (context.Principal.Identity as ClaimsIdentity).Claims.ToList();
+    //        var userUid = claims.Where(u => u.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
+    //    },
+    //};
+});
 #endregion
 
 #region JwtBearer
