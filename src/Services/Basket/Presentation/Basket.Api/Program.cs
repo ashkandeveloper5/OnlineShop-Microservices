@@ -1,5 +1,9 @@
+using Basket.Api.EventBusConsumer;
+using Basket.Application.Common.Mapper;
+using Basket.Application.Extensions;
 using Basket.Application.UOW;
 using Basket.DataAccess.Persistence.Context;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,11 +44,26 @@ builder.Services.AddSwaggerGen(option =>
 });
 #endregion
 
+
+builder.Services.AddHttpClient();
+
+builder.Services.AddMassTransit(config =>
+{
+    config.AddConsumer<BasketCheckoutConsumer>();
+    config.UsingRabbitMq((context, config) =>
+    {
+        config.Host(builder.Configuration["EventBusSettings:HostAddress"]);
+        config.ReceiveEndpoint(EventBus.Message.Common.EventBusConstants.BasketCheckoutQueue, c =>
+        {
+            c.ConfigureConsumer<BasketCheckoutConsumer>(context);
+        });
+    });
+});
+
+builder.Services.AddMassTransitHostedService();
 #region DI
 RegisterServices(builder.Services);
 #endregion
-
-builder.Services.AddHttpClient();
 
 #region JwtAuthentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(optioin =>
@@ -97,7 +116,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+#region Seed Data
+app.MigrateDatabase<BasketContext>((context, services) =>
+{
+    var logger = services.GetService<ILogger<BasketContextSeed>>();
+    BasketContextSeed.SeedAsync(context, logger).Wait();
+});
+#endregion
+
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllers();
 
@@ -108,6 +136,7 @@ static void RegisterServices(IServiceCollection services)
 {
     //DependencyContainer.RegisterServices(services);
     services.AddTransient<IUnitOfWork, UnitOfWork>();
-    services.AddAutoMapper(Assembly.GetExecutingAssembly());
+    services.AddAutoMapper(typeof(MappingProfile));
+    services.AddScoped<BasketCheckoutConsumer>();
 }
 #endregion

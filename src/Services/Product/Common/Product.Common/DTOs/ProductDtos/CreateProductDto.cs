@@ -8,6 +8,7 @@ namespace Product.Common.DTOs.ProductDtos
 {
     public class CreateProductDto
     {
+        public string UserId { get; set; }
         public string ProductName { get; set; }
         public long Count { get; set; }
         public decimal Price { get; set; }

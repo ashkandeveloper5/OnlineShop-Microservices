@@ -42,7 +42,7 @@ namespace Account.Repository.Context
         {
             return new List<User>
             {
-                new User {Id="123451234512345@ExampleId",Email="Example@gmail.com",IsActive=true,FirstName="Exaple",UserName="Example",LastName="Example",Password="1234512345"},
+                new User {Id="123451234512345@ExampleId",Email="Example@gmail.com",IsActive=true,FirstName="Exaple",UserName="Example",LastName="Example",Password="8C-FA-22-82-B1-7D-E0-A5-98-C0-10-F5-F0-10-9E-7D"},
             };
         }
         public static IEnumerable<UserRole> GetPreconfiguredUserRoles()

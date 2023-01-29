@@ -9,9 +9,9 @@ using Product.Domain.Entities.ProductEntities;
 
 namespace Product.Persistence.Context
 {
-    public class ProductContext:DbContext
+    public class ProductContext : DbContext
     {
-        public ProductContext(DbContextOptions<ProductContext> options):base(options)
+        public ProductContext(DbContextOptions<ProductContext> options) : base(options)
         {
 
         }
@@ -24,10 +24,6 @@ namespace Product.Persistence.Context
                 {
                     case EntityState.Added:
                         entry.Entity.CreateDate = DateTime.Now;
-                        if (String.IsNullOrEmpty(entry.Entity.Id))
-                        {
-                            entry.Entity.Id = Guid.NewGuid().ToString();
-                        }
                         break;
                     case EntityState.Modified:
                         entry.Entity.ModifiedDate = DateTime.Now;
@@ -37,10 +33,12 @@ namespace Product.Persistence.Context
 
             return base.SaveChangesAsync(cancellationToken);
         }
-        public override ValueTask<EntityEntry<TEntity>> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default)
+
+        public override ValueTask<EntityEntry> AddAsync(object entity, CancellationToken cancellationToken = default)
         {
             return base.AddAsync(entity, cancellationToken);
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Query Filters

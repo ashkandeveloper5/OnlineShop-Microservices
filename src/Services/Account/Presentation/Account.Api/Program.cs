@@ -1,5 +1,7 @@
 using Account.Api.GrpcServices;
 using Account.Service.JWT;
+using Account.Service.Utilities.Mapping;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -67,6 +69,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 #endregion
 
+builder.Services.AddHttpClient();
+
+builder.Services.AddMassTransit(config =>
+{
+    config.UsingRabbitMq((context, config) =>
+    {
+        config.Host(builder.Configuration["EventBusSettings:HostAddress"]);
+    });
+});
+
+builder.Services.AddMassTransitHostedService();
 
 #region Grpc Settings
 builder.Services.AddGrpcClient<ProductProtoService.ProductProtoServiceClient>(options =>
@@ -124,6 +137,6 @@ static void RegisterServices(IServiceCollection services)
     DependencyContainer.RegisterServices(services);
     services.AddScoped<IUnitOfWork, UnitOfWork>();
     services.AddTransient<IJwtToken, JwtToken>();
-    services.AddAutoMapper(Assembly.GetExecutingAssembly());
+    services.AddAutoMapper(typeof(MappingProfile));
 }
 #endregion

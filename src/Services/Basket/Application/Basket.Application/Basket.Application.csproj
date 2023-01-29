@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Common\Email\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="MappingProfiles\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\BuildingBlock\EventBus.Message\EventBus.Message.csproj" />
     <ProjectReference Include="..\..\DataAccess\Basket.DataAccess\Basket.DataAccess.csproj" />
   </ItemGroup>
 

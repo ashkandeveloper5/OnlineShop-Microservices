@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Product.Persistence.Repository
 {
-    public class AsyncRepository<TEntity>:IAsyncRepository<TEntity> where TEntity : BaseEntity
+    public class AsyncRepository<TEntity> : IAsyncRepository<TEntity> where TEntity : BaseEntity
     {
         protected readonly ProductContext _context;
         private DbSet<TEntity> _query;

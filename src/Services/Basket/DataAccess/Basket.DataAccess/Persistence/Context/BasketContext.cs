@@ -1,4 +1,5 @@
 ﻿using Basket.Core.Entities;
+using Basket.Core.Entities.Basket;
 using Basket.Core.Entities.Order;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -18,6 +19,7 @@ namespace Basket.DataAccess.Persistence.Context
         }
         public DbSet<Order> Orders{ get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<BasketCheckout> BasketCheckouts { get; set; }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             foreach (var entry in ChangeTracker.Entries<BaseEntity>())
@@ -26,10 +28,6 @@ namespace Basket.DataAccess.Persistence.Context
                 {
                     case EntityState.Added:
                         entry.Entity.CreateDate = DateTime.Now;
-                        if (String.IsNullOrEmpty(entry.Entity.Id))
-                        {
-                            entry.Entity.Id = Guid.NewGuid().ToString();
-                        }
                         break;
                 }
             }

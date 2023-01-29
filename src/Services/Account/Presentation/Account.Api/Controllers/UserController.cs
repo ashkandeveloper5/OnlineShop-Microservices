@@ -50,6 +50,7 @@ namespace Account.Api.Controllers
             return Ok(_unitOfWork.UserService.DeleteAsync(_unitOfWork.UserService.GetByIdAsync(userId).Result));
         }
         #endregion
+
         #region UserRole
         //[HttpGet("GetUserRoles/{userId}")]
         //public async Task<ActionResult<IList<Role>>> GetUserRoles(string userId)

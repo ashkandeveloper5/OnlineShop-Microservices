@@ -10,7 +10,7 @@ namespace Product.Domain.Entities
     public class BaseEntity
     {
         [Key]
-        public string Id { get; set; }
+        public string Id { get; set; }=Guid.NewGuid().ToString();
         public DateTime CreateDate { get; set; }
         public DateTime ModifiedDate { get; set; }
         public bool IsDelete { get; set; }

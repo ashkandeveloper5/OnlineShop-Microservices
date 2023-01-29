@@ -1,4 +1,5 @@
-﻿using Account.Core.Entities.User;
+﻿using Account.Core.Common.PasswordEncoder;
+using Account.Core.Entities.User;
 using Account.Service.DTOs.UserDto;
 using Account.Service.JWT;
 using Account.Service.UOW;
@@ -34,7 +35,12 @@ namespace Account.Api.Controllers
         {
             try
             {
-                await _unitOfWork.UserService.AddAsync(_mapper.Map<User>(registerUserDto));
+                await _unitOfWork.UserService.AddAsync(new User
+                {
+                    Email = registerUserDto.Email,
+                    Password = PasswordEncoder.EncodePasswordMd5(registerUserDto.Password),
+                    UserName = registerUserDto.UserName,
+                });
                 return Ok();
             }
             catch (Exception)
@@ -50,7 +56,7 @@ namespace Account.Api.Controllers
             return Ok(newToken);
         }
 
-        [HttpPost("Logout"),Authorize(Roles =Roles.NormalUser)]
+        [HttpPost("Logout"), Authorize(Roles = Roles.NormalUser)]
         public async Task<ActionResult> Logout()
         {
             await HttpContext.SignOutAsync();

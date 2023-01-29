@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Order.Core.UOW;
 using Order.Data.Context;
+using Order.Presentation.Order.Api.Extensions;
 using System.Reflection;
 using System.Text;
 
@@ -92,6 +93,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+#region Seed Data
+app.MigrateDatabase<OrderContext>((context, services) =>
+{
+    var logger = services.GetService<ILogger<OrderContextSeed>>();
+    OrderContextSeed.SeedAsync(context, logger).Wait();
+});
+#endregion
 
 app.UseAuthentication();
 app.UseAuthorization();

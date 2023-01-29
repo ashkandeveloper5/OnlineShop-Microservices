@@ -24,7 +24,6 @@ namespace Order.Data.Context
                 {
                     case EntityState.Added:
                         entry.Entity.CreateDate = DateTime.Now;
-                        entry.Entity.Id = Guid.NewGuid().ToString();
                         break;
                     case EntityState.Modified:
                         entry.Entity.ModifiedDate = DateTime.Now;

@@ -28,6 +28,15 @@ services:
     ports:
       - "1438:1433"
 
+  orderdb:
+    container_name: orderdb
+    environment:
+      SA_PASSWORD: "12345onlineshoporderdb"
+      ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+      - "1437:1433"
+
   account.api:
     container_name: account.api
     environment:
@@ -42,7 +51,7 @@ services:
     container_name: basket.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:ConnectionString=Server=basketdb;Port=1435;Database=BasketApiDB;User Id=sa;Password=12345onlineshopbasketdb;"
+      - "ConnectionStrings:ConnectionString=Server=basketdb;Database=BasketApiDB;User Id=sa;Password=12345onlineshopbasketdb;"
     depends_on:
       - basketdb
     ports:
@@ -52,7 +61,7 @@ services:
     container_name: product.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:ConnectionString=Server=productdb;Port=1438;Database=ProductApiDB;User Id=sa;Password=12345onlineshopproductdb;"
+      - "ConnectionStrings:ConnectionString=Server=productdb;Database=ProductApiDB;User Id=sa;Password=12345onlineshopproductdb;"
       - "GrpcSettings:ProductUrl=product.grpc"
     depends_on:
       - productdb
@@ -64,10 +73,10 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      - "ConnectionStrings:ConnectionString=Server=productdb;Port=1438;Database=ProductApiDB;User Id=sa;Password=12345onlineshopproductdb;"
+      - "ConnectionStrings:ConnectionString=Server=productdb;Database=ProductApiDB;User Id=sa;Password=12345onlineshopproductdb;"
     ports:
       - "8005:80"
-      - "443"
+      - "8006:443"
     depends_on:
       - productdb
     volumes:
@@ -77,6 +86,9 @@ services:
   order.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:ConnectionString=Server=productdb;Database=ProductApiDB;User Id=sa;Password=12345onlineshoporderdb;"
+    depends_on:
+      - orderdb
     ports:
-      - "80"
+      - "7003:80"
 

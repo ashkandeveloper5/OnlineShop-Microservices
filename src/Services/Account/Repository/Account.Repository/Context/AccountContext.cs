@@ -31,10 +31,6 @@ namespace Account.Repository.Context
                 {
                     case EntityState.Added:
                         entry.Entity.CreateDate = DateTime.Now;
-                        if (String.IsNullOrEmpty(entry.Entity.Id))
-                        {
-                            entry.Entity.Id = Guid.NewGuid().ToString();
-                        }
                         break;
                     case EntityState.Modified:
                         entry.Entity.ModifiedDate = DateTime.Now;

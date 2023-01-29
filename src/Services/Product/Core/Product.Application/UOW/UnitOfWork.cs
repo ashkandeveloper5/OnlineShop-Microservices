@@ -14,7 +14,7 @@ namespace Product.Application.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ProductContext _context;
+        private ProductContext _context;
         public UnitOfWork(ProductContext context)
         {
             _context = context;

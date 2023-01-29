@@ -7,6 +7,7 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["src/Services/Account/Presentation/Account.Api/Account.Api.csproj", "src/Services/Account/Presentation/Account.Api/"]
+COPY ["BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
 COPY ["src/Services/Account/IoC/Account.IoC/Account.IoC.csproj", "src/Services/Account/IoC/Account.IoC/"]
 COPY ["src/Services/Account/Repository/Account.Repository/Account.Repository.csproj", "src/Services/Account/Repository/Account.Repository/"]
 COPY ["src/Services/Account/Core/Account.Core/Account.Core.csproj", "src/Services/Account/Core/Account.Core/"]

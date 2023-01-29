@@ -2,9 +2,13 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Product.Application.Extensions;
 using Product.Application.UOW;
+using Product.Common.Utilities.Mapping;
+using Product.Domain.Interfaces.BaseInterfaces;
 using Product.IoC.DependencyContainer;
 using Product.Persistence.Context;
+using Product.Persistence.Repository;
 using System.Reflection;
 using System.Text;
 
@@ -95,6 +99,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+#region Seed Data
+app.MigrateDatabase<ProductContext>((context, services) =>
+{
+    var logger = services.GetService<ILogger<ProductContextSeed>>();
+    ProductContextSeed.SeedAsync(context, logger).Wait();
+});
+#endregion
+
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -107,6 +119,6 @@ static void RegisterServices(IServiceCollection services)
 {
     DependencyContainer.RegisterServices(services);
     services.AddScoped<IUnitOfWork, UnitOfWork>();
-    services.AddAutoMapper(Assembly.GetExecutingAssembly());
+    services.AddAutoMapper(typeof(MappingProfile));
 }
 #endregion

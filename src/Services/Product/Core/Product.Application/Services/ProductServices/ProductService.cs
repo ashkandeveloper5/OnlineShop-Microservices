@@ -18,7 +18,8 @@ namespace Product.Application.Services.ProductServices
 
         public async Task<IReadOnlyList<ProductEntity>> GetAllAsync()
         {
-            return await _productRepository.GetAllAsync();
+            var result= await _productRepository.GetAllAsync();
+            return result;
         }
 
         public async Task<IReadOnlyList<ProductEntity>> GetAsync(Expression<Func<ProductEntity, bool>> predicate)

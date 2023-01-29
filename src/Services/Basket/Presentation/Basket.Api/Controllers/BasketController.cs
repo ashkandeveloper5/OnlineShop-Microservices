@@ -52,46 +52,34 @@ namespace Basket.Api.Controllers
             return Ok();
         }
 
-        [HttpGet("FinalRegistration/{orderId}")]
-        public async Task<ActionResult<Order>> GetBasketForFinalRegistration(string orderId)
+        [HttpGet("GetBasketForFinalRegistration/{orderId}")]
+        public async Task<ActionResult<GetOrderDto>> GetBasketForFinalRegistration(string orderId)
         {
             Order order = _unitOfWork.BasketService.GetOrderAsync(o => o.Id == orderId).Result[0];
-            order.Items.AddRange(_unitOfWork.BasketService.GetOrderDetailAsync(o => o.OrderId == order.Id).Result);
-            return order;
+            var orderDetails = _unitOfWork.BasketService.GetOrderDetailAsync(o => o.OrderId == order.Id).Result;
+            foreach (var item in orderDetails)
+            {
+                order.TotalPrice += item.Price;
+            }
+            return Ok(_mapper.Map<GetOrderDto>(order));
         }
 
         [HttpPost("FinalRegistration/{orderId}")]
         public async Task<ActionResult<Core.Entities.Basket.BasketCheckout>> AddFinalRegistration(string orderId, [FromBody] Core.Entities.Basket.BasketCheckout basketCheckout)
         {
             Order order = _unitOfWork.BasketService.GetOrderAsync(o => o.Id == orderId).Result[0];
-            order.Items.AddRange(_unitOfWork.BasketService.GetOrderDetailAsync(o => o.OrderId == order.Id).Result);
+            var orderDetails = _unitOfWork.BasketService.GetOrderDetailAsync(o => o.OrderId == order.Id).Result;
+            foreach (var item in orderDetails)
+            {
+                order.TotalPrice += item.Price;
+            }
+            order.IsFinally = true;
+            _unitOfWork.Save();
             var result = _unitOfWork.BasketService.AddCkeckout(basketCheckout).Result;
             var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5003/api/v1/Order/CheckoutOrder");
             var client = _httpClientFactory.CreateClient();
             var response = await client.PostAsJsonAsync(orderId, JsonSerializer.Serialize(result));
             return Ok(response.Content.ReadAsStringAsync());
-        }
-
-        [HttpGet("OnGet")]
-        public async Task<ActionResult<string>> OnGet()
-        {
-            var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5003/api/v1/Order/CheckoutOrder");
-
-            var client = _httpClientFactory.CreateClient();
-
-            var response = await client.SendAsync(request);
-            return Ok(response.Content.ReadAsStringAsync());
-            //if (response.IsSuccessStatusCode)
-            //{
-            //    Branches = await response.Content
-            //        .ReadAsAsync<IEnumerable<GitHubBranch>>();
-            //}
-            //else
-            //{
-            //    GetBranchesError = true;
-            //    Branches = Array.Empty<GitHubBranch>();
-
-            //}
         }
     }
 }

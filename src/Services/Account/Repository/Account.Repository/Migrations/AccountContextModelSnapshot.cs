@@ -45,7 +45,7 @@ namespace Account.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("Account.Core.Entities.Access.UserRole", b =>
@@ -79,7 +79,7 @@ namespace Account.Repository.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserRoles");
+                    b.ToTable("UserRoles", (string)null);
                 });
 
             modelBuilder.Entity("Account.Core.Entities.User.User", b =>
@@ -126,7 +126,7 @@ namespace Account.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Account.Core.Entities.Access.UserRole", b =>

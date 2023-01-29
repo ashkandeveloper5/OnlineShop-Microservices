@@ -9,7 +9,7 @@ using Product.Domain.Entities.ProductEntities;
 
 namespace Product.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     [Authorize(Roles = Roles.Admin)]
     public class ProductController : ControllerBase
@@ -28,27 +28,33 @@ namespace Product.Api.Controllers
         [HttpGet("GetAllProducts")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts()
         {
-            return Ok(_mapper.Map<ProductDto>(_unitOfWork.ProductService.GetAllAsync()));
+            var products = await _unitOfWork.ProductService.GetAllAsync();
+            var response = new List<ProductDto>();
+            foreach (var item in products)
+            {
+                response.Add(_mapper.Map<ProductDto>(item));
+            }
+            return Ok(response);
         }
 
         [HttpGet("GetProduct/{productId}")]
-        public async Task<ActionResult<ProductDto>> Get(string id)
+        public async Task<ActionResult<ProductDto>> GetProduct(string productId)
         {
-            return Ok(_mapper.Map<ProductDto>(await _unitOfWork.ProductService.GetAsync(product => product.Id == id)));
+            var product = _unitOfWork.ProductService.GetAsync(product => product.Id == productId).Result[0];
+            return Ok(_mapper.Map<ProductDto>(product));
         }
 
         [HttpPost("CreateProduct")]
-        public async Task<ActionResult> CreateProduct([FromBody] CreateProductDto createProductDto)
+        public async Task<ActionResult<ProductEntity>> CreateProduct([FromBody] CreateProductDto createProductDto)
         {
-            return Ok(await _unitOfWork.ProductService.AddAsync(_mapper.Map<ProductEntity>(createProductDto)));
+            var result = await _unitOfWork.ProductService.AddAsync(_mapper.Map<ProductEntity>(createProductDto));
+            return Ok(result);
         }
 
         [HttpPut("UpdateProduct/{productId}")]
-        public async Task<ActionResult> UpdateProduct(string productId, [FromBody] UpdateProductDto updateProductDto)
+        public async Task<ActionResult<ProductEntity>> UpdateProduct(string productId, [FromBody] UpdateProductDto updateProductDto)
         {
-            ProductEntity productEntity = _mapper.Map<ProductEntity>(updateProductDto);
-            productEntity.Id=productId;
-            return Ok(_unitOfWork.ProductService.UpdateAsync(productEntity));
+            return Ok(_unitOfWork.ProductService.UpdateAsync(_mapper.Map<ProductEntity>(updateProductDto)));
         }
 
         [HttpDelete("DeleteProduct/{productId}")]
@@ -59,10 +65,10 @@ namespace Product.Api.Controllers
         }
 
         [HttpDelete("DeleteProduct/{productId}/{count}")]
-        public async Task<ActionResult> ProductPurchase(string productId,long count)
+        public async Task<ActionResult> ProductPurchase(string productId, long count)
         {
             ProductEntity productEntity = _unitOfWork.ProductService.GetAsync(p => p.Id == productId).Result[0];
-            productEntity.Count-=count;
+            productEntity.Count -= count;
             await _unitOfWork.ProductService.UpdateAsync(productEntity);
             return Ok();
         }

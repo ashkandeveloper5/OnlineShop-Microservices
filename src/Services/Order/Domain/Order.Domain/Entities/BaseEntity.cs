@@ -8,7 +8,7 @@ namespace Order.Domain.Entities
 {
     public class BaseEntity
     {
-        public string Id { get; set; }
+        public string Id { get; set; }= Guid.NewGuid().ToString();
         public DateTime CreateDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
     }
