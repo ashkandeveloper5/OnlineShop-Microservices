@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Account.Api.Controllers
 {
@@ -17,6 +16,7 @@ namespace Account.Api.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        #region Constractor
         private readonly IJwtToken _jwtToken;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -28,8 +28,9 @@ namespace Account.Api.Controllers
             _logger = logger;
             _mapper = mapper;
         }
+        #endregion
 
-        // GET: api/<AuthController>
+        #region Register
         [HttpPost("Register")]
         public async Task<ActionResult> Register([FromBody] RegisterUserDto registerUserDto)
         {
@@ -48,19 +49,24 @@ namespace Account.Api.Controllers
                 return BadRequest();
             }
         }
+        #endregion
 
+        #region Login
         [HttpPost("Login")]
         public async Task<ActionResult<string>> Login([FromBody] LoginUserDto loginUserDto)
         {
             var newToken = _jwtToken.GenerateToken(loginUserDto).Result;
             return Ok(newToken);
         }
+        #endregion
 
+        #region Logout
         [HttpPost("Logout"), Authorize(Roles = Roles.NormalUser)]
         public async Task<ActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return Ok();
         }
+        #endregion
     }
 }

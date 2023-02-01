@@ -3,14 +3,14 @@ syntax = "proto3";
 option csharp_namespace = "Product.Grpc.Protos";
 
 service ProductProtoService{
-	rpc GetUserProducts(GetAllProductsListRequest)returns (GetAllProductsListResponse);
-	rpc GetProductById(GetProductByIdRequest)returns (GetProductByIdResponse);
+	rpc GetUserProducts(GetAllProductsListRequest) returns (GetAllProductsListResponse);
+	rpc GetProductById(GetProductByIdRequest) returns (GetProductByIdResponse);
 	rpc ProductPurchase(ProductPurchaseMessageRequest) returns (ProductPurchaseMessageResponse);
-	rpc AddToProductExist(AddToProductExistRequest)returns (AddToProductExistResponse);
+	rpc AddToProductExist(AddToProductExistRequest) returns (AddToProductExistResponse);
 }
 
 message GetAllProductsListResponse{
-	repeated GetAllProductsResponse items=1;
+	repeated GetAllProductsResponse items =1;
 }
 
 message GetAllProductsResponse{

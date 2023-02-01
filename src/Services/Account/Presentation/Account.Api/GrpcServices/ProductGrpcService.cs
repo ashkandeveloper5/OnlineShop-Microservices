@@ -21,15 +21,15 @@ namespace Account.Api.GrpcServices
                 Count = result.Count,
                 FirstDescription = result.FirstDescription,
                 Id = result.Id,
-                Price = result.Price,
+                Price = (decimal)result.Price,
                 ProductName = result.ProductName,
                 SecondDescription = result.SecondDescription,
                 ThirdDescription = result.ThirdDescription,
-                Title = result.Title
+                Title = result.Title,
             };
         }
 
-        public async Task<List<ProductDto>> GetProductsUserAsync(string userId)
+        public async Task<IEnumerable<ProductDto>> GetProductsUserAsync(string userId)
         {
             var result = await _service.GetUserProductsAsync(new GetAllProductsListRequest { UserId = userId });
             var products=new List<ProductDto>();

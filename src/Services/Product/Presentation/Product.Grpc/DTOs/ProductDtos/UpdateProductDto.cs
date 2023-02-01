@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Account.Service.DTOs
+namespace Product.Grpc.DTOs.ProductDtos
 {
-    public class ProductDto
+    public class UpdateProductDto
     {
-        public string Id { get; set; }
-        public string? CreateDate { get; set; }
+        public string UserId { get; set; }
         public string ProductName { get; set; }
         public long Count { get; set; }
         public decimal Price { get; set; }

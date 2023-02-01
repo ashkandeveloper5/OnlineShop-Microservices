@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Product.Common.Utilities.Mapping
+namespace Product.Grpc.Mapping
 {
     public class MappingProfile:Profile
     {

@@ -92,3 +92,10 @@ services:
     ports:
       - "7003:80"
 
+
+  ocelotapigw:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

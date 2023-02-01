@@ -46,3 +46,10 @@ services:
       context: .
       dockerfile: src/Services/Order/Presentation/Order.Api/Dockerfile
 
+
+  ocelotapigw:
+    image: ${DOCKER_REGISTRY-}ocelotapigw
+    build:
+      context: .
+      dockerfile: src/ApiGateways/OcelotApiGw/Dockerfile
+

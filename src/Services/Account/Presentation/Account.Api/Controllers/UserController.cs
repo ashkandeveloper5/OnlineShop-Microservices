@@ -11,15 +11,17 @@ namespace Account.Api.Controllers
     [Authorize(Roles = $"{Roles.Admin},{Roles.RolesAdmin}")]
     public class UserController : ControllerBase
     {
+        #region Constractor
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<UserController> _logger;
         private readonly IMapper _mapper;
-        public UserController(IUnitOfWork unitOfWork, ILogger<UserController> logger,IMapper mapper)
+        public UserController(IUnitOfWork unitOfWork, ILogger<UserController> logger, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
             _mapper = mapper;
         }
+        #endregion
 
         #region User
         // GET: api/<UserController>

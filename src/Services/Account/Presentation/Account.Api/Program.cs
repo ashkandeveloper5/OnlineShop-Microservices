@@ -71,6 +71,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Services.AddHttpClient();
 
+#region MassTransit
 builder.Services.AddMassTransit(config =>
 {
     config.UsingRabbitMq((context, config) =>
@@ -80,6 +81,9 @@ builder.Services.AddMassTransit(config =>
 });
 
 builder.Services.AddMassTransitHostedService();
+#endregion
+
+
 
 #region Grpc Settings
 builder.Services.AddGrpcClient<ProductProtoService.ProductProtoServiceClient>(options =>

@@ -4,17 +4,20 @@ using Product.Application.UOW;
 using Product.Grpc.Protos;
 using Google.Protobuf.Collections;
 using Product.Domain.Entities.ProductEntities;
+using AutoMapper;
 
 namespace Product.Grpc.Services
 {
     public class ProductService : ProductProtoService.ProductProtoServiceBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         private readonly ILogger<ProductService> _logger;
-        public ProductService(IUnitOfWork unitOfWork, ILogger<ProductService> logger)
+        public ProductService(IUnitOfWork unitOfWork, ILogger<ProductService> logger,IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
+            _mapper = mapper;
         }
         public override async Task<GetAllProductsListResponse> GetUserProducts(GetAllProductsListRequest request, ServerCallContext context)
         {
@@ -24,20 +27,26 @@ namespace Product.Grpc.Services
                 throw new RpcException(new Status(StatusCode.NotFound, $"Product With User Id {request.UserId} Is Not Found"));
             }
             var result = new GetAllProductsListResponse();
+            
             foreach (var item in products)
             {
-                result.Items.Add(new GetAllProductsResponse
-                {
-                    Id = item.Id,
-                    Count = item.Count,
-                    FirstDescription = item.FirstDescription,
-                    Price = int.Parse(item.Price.ToString()),
-                    ProductName = item.ProductName,
-                    SecondDescription = item.SecondDescription,
-                    ThirdDescription = item.ThirdDescription,
-                    Title = item.Title,
-                });
+                result.Items.Add(_mapper.Map<GetAllProductsResponse>(item));
             }
+            //foreach (var item in products)
+            //{
+            //    result.Items.Add(_mapper.Map<GetAllProductsResponse>(item));
+            //    result.Items.Add(new GetAllProductsResponse
+            //    {
+            //        Id = item.Id,
+            //        Count = item.Count,
+            //        FirstDescription = item.FirstDescription,
+            //        Price = long.Parse(item.Price.ToString()),
+            //        ProductName = item.ProductName,
+            //        SecondDescription = item.SecondDescription,
+            //        ThirdDescription = item.ThirdDescription,
+            //        Title = item.Title,
+            //    });
+            //}
             return result;
         }
 
@@ -49,7 +58,7 @@ namespace Product.Grpc.Services
                 Id = getProduct.Id,
                 Count = getProduct.Count,
                 FirstDescription = getProduct.FirstDescription,
-                Price = int.Parse(getProduct.Price.ToString()),
+                Price = (long)getProduct.Price,
                 ProductName = getProduct.ProductName,
                 SecondDescription = getProduct.SecondDescription,
                 ThirdDescription = getProduct.ThirdDescription,

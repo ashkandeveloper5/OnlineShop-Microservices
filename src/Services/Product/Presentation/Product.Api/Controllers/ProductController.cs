@@ -14,6 +14,7 @@ namespace Product.Api.Controllers
     [Authorize(Roles = Roles.Admin)]
     public class ProductController : ControllerBase
     {
+        #region Constractor
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private ILogger<ProductController> _logger;
@@ -24,7 +25,9 @@ namespace Product.Api.Controllers
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
+        #endregion
 
+        #region GetProduct
         [HttpGet("GetAllProducts")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts()
         {
@@ -43,20 +46,26 @@ namespace Product.Api.Controllers
             var product = _unitOfWork.ProductService.GetAsync(product => product.Id == productId).Result[0];
             return Ok(_mapper.Map<ProductDto>(product));
         }
+        #endregion
 
+        #region CreateProduct
         [HttpPost("CreateProduct")]
         public async Task<ActionResult<ProductEntity>> CreateProduct([FromBody] CreateProductDto createProductDto)
         {
             var result = await _unitOfWork.ProductService.AddAsync(_mapper.Map<ProductEntity>(createProductDto));
             return Ok(result);
         }
+        #endregion
 
+        #region UpdateProduct
         [HttpPut("UpdateProduct/{productId}")]
         public async Task<ActionResult<ProductEntity>> UpdateProduct(string productId, [FromBody] UpdateProductDto updateProductDto)
         {
             return Ok(_unitOfWork.ProductService.UpdateAsync(_mapper.Map<ProductEntity>(updateProductDto)));
         }
+        #endregion
 
+        #region DeleteProduct
         [HttpDelete("DeleteProduct/{productId}")]
         public async Task<ActionResult> DeleteProduct(string productId)
         {
@@ -72,5 +81,6 @@ namespace Product.Api.Controllers
             await _unitOfWork.ProductService.UpdateAsync(productEntity);
             return Ok();
         }
+        #endregion
     }
 }
