@@ -7,7 +7,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Auth/Register",
@@ -19,7 +19,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Auth/Login",
@@ -31,7 +31,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Auth/Logout",
@@ -48,7 +48,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/GetUser/{userId}",
@@ -65,7 +65,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/UpdateUser",
@@ -82,7 +82,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/DeleteAccount/{userId}",
@@ -99,7 +99,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/GetProducts",
@@ -116,7 +116,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/GetProductById/{productId}",
@@ -133,7 +133,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/BasketCheckout",
@@ -150,7 +150,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/GetActiveOrder",
@@ -167,7 +167,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/User/GetAllUser",
@@ -184,7 +184,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/User/GetUserById/{userId}",
@@ -201,7 +201,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/User/UpdateUser/{userId}",
@@ -218,7 +218,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/User/DeleteUserById/{userId}",
@@ -236,7 +236,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/GetAllOrders",
@@ -253,7 +253,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/GetAllOrderDetails",
@@ -270,7 +270,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/AddToBasket/{userId}",
@@ -287,7 +287,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/DeleteOrderDetail/{orderDetailId}",
@@ -304,7 +304,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/GetBasketForFinalRegistration/{orderId}",
@@ -321,7 +321,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/FinalRegistration/{orderId}",
@@ -338,7 +338,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/GetActiveOrder/{userId}",
@@ -356,7 +356,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/GetAllProducts",
@@ -373,7 +373,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/GetProduct/{productId}",
@@ -390,7 +390,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/CreateProduct",
@@ -407,7 +407,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/UpdateProduct/{productId}",
@@ -424,7 +424,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/DeleteProduct/{productId}",
@@ -441,11 +441,45 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/DeleteProduct/{productId}/{count}",
       "UpstreamHttpMethod": [ "Delete" ],
+      "RouteIsCaseSensitive": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Category/GetAllCategory",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Category/GetAllCategory",
+      "UpstreamHttpMethod": [ "Get" ],
+      "RouteIsCaseSensitive": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Category/GetCategory/{categoryId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Category/GetCategory/{categoryId}",
+      "UpstreamHttpMethod": [ "Get" ],
       "RouteIsCaseSensitive": true,
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
@@ -459,7 +493,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5003
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Order/GetAllOrders",
@@ -476,7 +510,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5003
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Order/GetCheckoutOrderById/{orderId}",
@@ -492,3 +526,532 @@
     "BaseUrl": "http://localhost:5010"
   }
 }
+
+//{
+//  "Routes": [
+//    //AccountApi
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Auth/Register",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Auth/Register",
+//      "UpstreamHttpMethod": [ "Post" ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Auth/Login",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Auth/Login",
+//      "UpstreamHttpMethod": [ "Post" ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Auth/Logout",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Auth/Logout",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Account/GetUser/{userId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Account/GetUser/{userId}",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Account/UpdateUser",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Account/UpdateUser",
+//      "UpstreamHttpMethod": [ "Put" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Account/DeleteAccount/{userId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Account/DeleteAccount/{userId}",
+//      "UpstreamHttpMethod": [ "Delete" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Account/GetProducts",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Account/GetProducts",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Account/GetProductById/{productId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Account/GetProductById/{productId}",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Account/BasketCheckout",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Account/BasketCheckout",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Account/GetActiveOrder",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Account/GetActiveOrder",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/User/GetAllUser",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/User/GetAllUser",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/User/GetUserById/{userId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/User/GetUserById/{userId}",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/User/UpdateUser/{userId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/User/UpdateUser/{userId}",
+//      "UpstreamHttpMethod": [ "Put" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/User/DeleteUserById/{userId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5000
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/User/DeleteUserById/{userId}",
+//      "UpstreamHttpMethod": [ "Delete" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    //BasketApi
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Basket/GetAllOrders",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5001
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Basket/GetAllOrders",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Basket/GetAllOrderDetails",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5001
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Basket/GetAllOrderDetails",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Basket/AddToBasket/{userId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5001
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Basket/AddToBasket/{userId}",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Basket/DeleteOrderDetail/{orderDetailId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5001
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Basket/DeleteOrderDetail/{orderDetailId}",
+//      "UpstreamHttpMethod": [ "Delete" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Basket/GetBasketForFinalRegistration/{orderId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5001
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Basket/GetBasketForFinalRegistration/{orderId}",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Basket/FinalRegistration/{orderId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5001
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Basket/FinalRegistration/{orderId}",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Basket/GetActiveOrder/{userId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5001
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Basket/GetActiveOrder/{userId}",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    //ProductApi
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Product/GetAllProducts",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5004
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Product/GetAllProducts",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Product/GetProduct/{productId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5004
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Product/GetProduct/{productId}",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Product/CreateProduct",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5004
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Product/CreateProduct",
+//      "UpstreamHttpMethod": [ "Post" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Product/UpdateProduct/{productId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5004
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Product/UpdateProduct/{productId}",
+//      "UpstreamHttpMethod": [ "Put" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Product/DeleteProduct/{productId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5004
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Product/DeleteProduct/{productId}",
+//      "UpstreamHttpMethod": [ "Delete" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Product/DeleteProduct/{productId}/{count}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5004
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Product/DeleteProduct/{productId}/{count}",
+//      "UpstreamHttpMethod": [ "Delete" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Category/GetAllCategory",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5004
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Category/GetAllCategory",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Category/GetCategory/{categoryId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5004
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Category/GetCategory/{categoryId}",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    //OrderApi
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Order/GetAllOrders",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5003
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Order/GetAllOrders",
+//      "UpstreamHttpMethod": [ "Delete" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/v1/Order/GetCheckoutOrderById/{orderId}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5003
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/Order/GetCheckoutOrderById/{orderId}",
+//      "UpstreamHttpMethod": [ "Get" ],
+//      "RouteIsCaseSensitive": true,
+//      "AuthenticationOptions": {
+//        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+//        "AllowedScopes": []
+//      }
+//    }
+//  ],
+//  "GlobalConfiguration": {
+//    "BaseUrl": "http://localhost:5010"
+//  }
+//}

@@ -7,7 +7,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Auth/Register",
@@ -19,7 +19,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Auth/Login",
@@ -31,7 +31,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Auth/Logout",
@@ -48,7 +48,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/GetUser/{userId}",
@@ -65,7 +65,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/UpdateUser",
@@ -82,7 +82,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/DeleteAccount/{userId}",
@@ -99,7 +99,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/GetProducts",
@@ -116,7 +116,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/GetProductById/{productId}",
@@ -133,7 +133,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/BasketCheckout",
@@ -150,7 +150,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Account/GetActiveOrder",
@@ -167,7 +167,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/User/GetAllUser",
@@ -184,7 +184,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/User/GetUserById/{userId}",
@@ -201,7 +201,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/User/UpdateUser/{userId}",
@@ -218,7 +218,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/User/DeleteUserById/{userId}",
@@ -236,7 +236,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/GetAllOrders",
@@ -253,7 +253,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/GetAllOrderDetails",
@@ -270,7 +270,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/AddToBasket/{userId}",
@@ -287,7 +287,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/DeleteOrderDetail/{orderDetailId}",
@@ -304,7 +304,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/GetBasketForFinalRegistration/{orderId}",
@@ -321,7 +321,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/FinalRegistration/{orderId}",
@@ -338,7 +338,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5001
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Basket/GetActiveOrder/{userId}",
@@ -356,7 +356,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/GetAllProducts",
@@ -373,7 +373,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/GetProduct/{productId}",
@@ -390,7 +390,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/CreateProduct",
@@ -407,7 +407,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/UpdateProduct/{productId}",
@@ -424,7 +424,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/DeleteProduct/{productId}",
@@ -441,11 +441,45 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5004
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Product/DeleteProduct/{productId}/{count}",
       "UpstreamHttpMethod": [ "Delete" ],
+      "RouteIsCaseSensitive": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Category/GetAllCategory",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Category/GetAllCategory",
+      "UpstreamHttpMethod": [ "Get" ],
+      "RouteIsCaseSensitive": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Category/GetCategory/{categoryId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Category/GetCategory/{categoryId}",
+      "UpstreamHttpMethod": [ "Get" ],
       "RouteIsCaseSensitive": true,
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "AccountApiAccountApiAccountApiAccountApi",
@@ -459,7 +493,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5003
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Order/GetAllOrders",
@@ -476,7 +510,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5003
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Order/GetCheckoutOrderById/{orderId}",
