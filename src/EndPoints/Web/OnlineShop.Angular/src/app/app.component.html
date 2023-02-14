@@ -1,24 +1,50 @@
-﻿<h1 id="tableLabel">Weather forecast</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<p>This component demonstrates fetching data from the server.</p>
+<head>
+  <meta charset="UTF-8">
+  <link href="/../assets/shop/css/media-queries.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+  <title>OShop</title>
+</head>
+<body>
+  <header class="d-flex">
+    <div>
+      <a href="#">
+        <img src="#" alt="OShop"/>
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a>Name1</a></li>
+        <li><a>Name2</a></li>
+        <li><a>Name3</a></li>
+        <li><a>Name4</a></li>
+        <li><a>Name5</a></li>
+        <li><a>Name6</a></li>
+      </ul>
+    </nav>
+    <div>
+      <div class="search-icon d-flex">
+        <a href="#">
+          <i class="fa fa-search">
 
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+          </i>
+        </a>
+      </div>
+      <div class="dropdown-menu d-flex">
+        <a href="#">
+          <i class="fa fa-bars">
 
-<table *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+          </i>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main>
+
+  </main>
+  <footer>
+  </footer>
+</body>
+</html>
