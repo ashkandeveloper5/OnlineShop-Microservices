@@ -1,8 +1,9 @@
 # OnlineShop-Microservices
 
 
-> Description of the project :
-> This project is a store written with microservices architecture.
+> Project description:
+> This project is a store project.
+> I have written this project with microservice architecture.
 
 
 
