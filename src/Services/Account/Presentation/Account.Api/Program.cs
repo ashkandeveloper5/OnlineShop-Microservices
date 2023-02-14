@@ -88,7 +88,7 @@ builder.Services.AddMassTransitHostedService();
 #region Grpc Settings
 builder.Services.AddGrpcClient<ProductProtoService.ProductProtoServiceClient>(options =>
 {
-    options.Address = new Uri(builder.Configuration["GrpcSettings:ProductUrl"]);
+    options.Address = new Uri(builder.Configuration["GrpcSettings:ProductUrlDocker"]);
 });
 #endregion
 
@@ -105,7 +105,7 @@ builder.Services.AddSwaggerGen();
 #endregion
 
 #region SqlServerConnection
-builder.Services.AddDbContext<AccountContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectionString"]); }, ServiceLifetime.Transient);
+builder.Services.AddDbContext<AccountContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectionStringDocker"]); }, ServiceLifetime.Transient);
 //builder.Services.AddDbContext<AccountContext>(options => options.UseSqlServer("Data Source=.; Initial Catalog = AccountApiDB; Integrated Security=True"));
 #endregion
 var app = builder.Build();

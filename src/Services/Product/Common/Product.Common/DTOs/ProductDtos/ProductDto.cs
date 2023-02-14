@@ -21,5 +21,9 @@ namespace Product.Common.DTOs.ProductDtos
         public string? ThirdDescription { get; set; }
         public string? UserId { get; set; }
         public string Title { get; set; }
+        public string GroupId { get; set; }
+        public string? SubGroup { get; set; }
+
+        public string? ProductImage { get; set; }
     }
 }

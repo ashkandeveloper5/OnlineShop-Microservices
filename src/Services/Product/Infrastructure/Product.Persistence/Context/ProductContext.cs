@@ -16,6 +16,8 @@ namespace Product.Persistence.Context
 
         }
         public DbSet<ProductEntity> Products { get; set; }
+        public DbSet<ProductGroup> ProductGroups { get; set; }
+        public DbSet<ProductComment> ProductComments{ get; set; }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             foreach (var entry in ChangeTracker.Entries<Product.Domain.Entities.BaseEntity>())

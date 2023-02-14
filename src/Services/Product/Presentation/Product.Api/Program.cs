@@ -86,7 +86,7 @@ RegisterServices(builder.Services);
 #endregion
 
 #region SqlServerConnection
-builder.Services.AddDbContext<ProductContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectionString"]); }, ServiceLifetime.Transient);
+builder.Services.AddDbContext<ProductContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectionStringDocker"]); }, ServiceLifetime.Transient);
 //builder.Services.AddDbContext<AccountContext>(options => options.UseSqlServer("Data Source=.; Initial Catalog = AccountApiDB; Integrated Security=True"));
 #endregion
 

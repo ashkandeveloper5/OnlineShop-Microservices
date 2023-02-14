@@ -82,7 +82,7 @@ RegisterServices(builder.Services);
 #endregion
 
 #region SqlServerConnection
-builder.Services.AddDbContext<OrderContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectionString"]); }, ServiceLifetime.Transient);
+builder.Services.AddDbContext<OrderContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectionStringDocker"]); }, ServiceLifetime.Transient);
 #endregion
 
 var app = builder.Build();

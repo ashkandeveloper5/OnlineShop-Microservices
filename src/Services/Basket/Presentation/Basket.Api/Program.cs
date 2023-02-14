@@ -103,7 +103,7 @@ builder.Services.AddSwaggerGen();
 #endregion
 
 #region SqlServerConnection
-builder.Services.AddDbContext<BasketContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectionString"]); }, ServiceLifetime.Transient);
+builder.Services.AddDbContext<BasketContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectionStringDocker"]); }, ServiceLifetime.Transient);
 //builder.Services.AddDbContext<AccountContext>(options => options.UseSqlServer("Data Source=.; Initial Catalog = AccountApiDB; Integrated Security=True"));
 #endregion
 

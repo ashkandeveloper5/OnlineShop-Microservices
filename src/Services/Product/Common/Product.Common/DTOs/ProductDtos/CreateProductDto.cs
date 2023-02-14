@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,7 @@ namespace Product.Common.DTOs.ProductDtos
         public string? SecondDescription { get; set; }
         public string? ThirdDescription { get; set; }
         public string Title { get; set; }
+        public string GroupId { get; set; }
+        public string? SubGroup { get; set; }
     }
 }

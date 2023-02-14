@@ -11,7 +11,7 @@ namespace Product.Api.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    [Authorize(Roles = Roles.Admin)]
+    [Authorize(Roles = Roles.Seller)]
     public class ProductController : ControllerBase
     {
         #region Constractor
@@ -28,6 +28,7 @@ namespace Product.Api.Controllers
         #endregion
 
         #region GetProduct
+        [AllowAnonymous]
         [HttpGet("GetAllProducts")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts()
         {
@@ -40,6 +41,7 @@ namespace Product.Api.Controllers
             return Ok(response);
         }
 
+        [AllowAnonymous]
         [HttpGet("GetProduct/{productId}")]
         public async Task<ActionResult<ProductDto>> GetProduct(string productId)
         {

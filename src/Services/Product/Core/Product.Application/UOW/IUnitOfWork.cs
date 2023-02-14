@@ -11,5 +11,7 @@ namespace Product.Application.UOW
     {
         void Save();
         IProductService ProductService { get; }
+        ICategoryService CategoryService{ get; }
+        ICommentService CommentService { get; }
     }
 }

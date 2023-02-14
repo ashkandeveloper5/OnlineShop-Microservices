@@ -17,5 +17,10 @@ namespace Account.Service.DTOs
         public string? SecondDescription { get; set; }
         public string? ThirdDescription { get; set; }
         public string Title { get; set; }
+
+        public DateTime? ModifiedDate { get; set; }
+        public bool? IsDelete { get; set; }
+        public bool? IsActive { get; set; }
+        public string? UserId { get; set; }
     }
 }

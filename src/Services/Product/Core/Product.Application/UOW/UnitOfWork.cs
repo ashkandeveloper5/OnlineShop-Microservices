@@ -36,6 +36,38 @@ namespace Product.Application.UOW
         }
         #endregion
 
+        //Category Service
+        #region CategoryService
+        private ICategoryService _categoryService;
+        public ICategoryService CategoryService
+        {
+            get
+            {
+                if (_categoryService == null)
+                {
+                    _categoryService = new CategoryService(new AsyncRepository<ProductGroup>(_context));
+                }
+                return _categoryService;
+            }
+        }
+        #endregion
+
+        //Comment Service
+        #region CommentService
+        private ICommentService _commentService;
+        public ICommentService CommentService
+        {
+            get
+            {
+                if (_commentService == null)
+                {
+                    _commentService = new CommentService(new AsyncRepository<ProductComment>(_context));
+                }
+                return _commentService;
+            }
+        }
+        #endregion
+
         public void Dispose()
         {
             _context?.Dispose();
